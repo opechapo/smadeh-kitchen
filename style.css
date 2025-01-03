@@ -549,6 +549,14 @@ body{
   justify-content: center;
 }
 
+.foodList{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  flex-direction: row;
+}
+
 
 
 
