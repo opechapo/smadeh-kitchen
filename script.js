@@ -1,65 +1,126 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Smooth scrolling for navigation links
-  document.querySelectorAll(".mainNavList a").forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      if (this.getAttribute("href").startsWith("#")) {
-        e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
+  // Loader
+  window.addEventListener("load", () => {
+    document.querySelector(".loader").classList.add("hidden");
+  });
 
+  // Mobile Menu Toggle
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNavList = document.querySelector(".mainNavList");
+  menuToggle.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", !isExpanded);
+    mainNavList.classList.toggle("show");
+    menuToggle.classList.toggle("active");
+  });
+
+  // Smooth Scrolling and Active Link Highlighting
+  const navLinks = document.querySelectorAll(".mainNavList a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      if (this.hash) {
+        e.preventDefault();
+        const targetId = this.hash.substring(1);
+        const targetSection = document.getElementById(targetId);
         if (targetSection) {
           window.scrollTo({
-            top: targetSection.offsetTop - 80, // Adjust for header height
+            top: targetSection.offsetTop - 80,
             behavior: "smooth",
           });
+          navLinks.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+          if (mainNavList.classList.contains("show")) {
+            menuToggle.click();
+          }
         }
       }
     });
   });
 
-  // "Order Now" button functionality
-  const orderButton = document.querySelector(".section1 button");
-  if (orderButton) {
-    orderButton.addEventListener("click", function () {
-      alert("Redirecting to the order page...");
-      // Redirect to order page (update URL accordingly)
-      window.location.href = "order.html"; 
-    });
-  }
-
-  // Reservation Form Validation
-  const reservationForm = document.querySelector(".reserve button");
-  if (reservationForm) {
-    reservationForm.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent form submission
-      
-      const fullName = document.querySelector('input[placeholder="Full name"]').value.trim();
-      const phone = document.querySelector('input[placeholder="Phone number"]').value.trim();
-      const email = document.querySelector('input[placeholder="Email address"]').value.trim();
-      const guests = document.querySelector("#number_of_guests").value;
-      const date = document.querySelector('input[type="date"]').value;
-
-      if (!fullName || !phone || !email || !guests || !date) {
-        alert("Please fill in all fields before making a reservation.");
-        return;
+  // Highlight Active Section on Scroll
+  const sections = document.querySelectorAll("section, header");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
       }
-
-      alert("Reservation successful! We will contact you soon.");
-      // You can submit the form to a server or store it in local storage here.
     });
-  }
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
 
-  // Newsletter subscription validation
-  const newsletterForm = document.querySelector(".newsletter form");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", function (e) {
-      const emailInput = document.querySelector(".newsletter input[type='email']").value.trim();
-      if (!emailInput.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)) {
-        e.preventDefault();
-        alert("Please enter a valid email address.");
+  // Fade-in Animation for Sections
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  document
+    .querySelectorAll("section")
+    .forEach((section) => observer.observe(section));
+
+  // Order Now Button
+  const orderButton = document.querySelector(".hero .cta-button");
+  orderButton.addEventListener("click", () => {
+    window.location.href = "order.html"; // Replace with actual order page
+  });
+
+  // Reservation Form
+  const reservationForm = document.querySelector("#reservation-form");
+  const modal = document.querySelector("#reservation-modal");
+  const closeModalButtons = document.querySelectorAll(
+    ".close-modal, .close-modal-button"
+  );
+
+  reservationForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const inputs = reservationForm.querySelectorAll("input, select");
+    let isValid = true;
+
+    inputs.forEach((input) => {
+      if (!input.value) {
+        isValid = false;
+        input.style.borderColor = "#FF0000";
       } else {
-        alert("Thank you for subscribing to our newsletter!");
+        input.style.borderColor = "#CCCCCC";
       }
     });
-  }
+
+    if (isValid) {
+      modal.classList.add("show");
+      reservationForm.reset();
+    } else {
+      alert("Please fill in all required fields.");
+    }
+  });
+
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  });
+
+  // Newsletter Form
+  const newsletterForm = document.querySelector("#newsletter-form");
+  newsletterForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = newsletterForm.querySelector("input[type='email']").value;
+    if (email.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/)) {
+      alert("Thank you for subscribing!");
+      newsletterForm.reset();
+    } else {
+      alert("Please enter a valid email address.");
+    }
+  });
 });

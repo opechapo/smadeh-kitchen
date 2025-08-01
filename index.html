@@ -4,110 +4,161 @@
     <!-- Meta Information -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Smadeh Kitchen - Authentic African cuisine with a modern twist. Book a table or order online today!"
+    />
+    <meta
+      name="keywords"
+      content="African restaurant, Nigerian food, Smadeh Kitchen, order food online"
+    />
+    <meta name="author" content="Smadeh Kitchen" />
     <link rel="stylesheet" href="style.css" />
-
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Smadeh Kitchen</title>
   </head>
   <body>
-    <!-- HEADER SECTION -->
-    <header class="header">
-      <!-- Logo and Site Title -->
-      <a href="" class="logo">
-        <h1>Smadeh Kitchen</h1>
-        <img src="images/chef logo.png" alt="Chef Logo">
-      </a>
+    <!-- Loading Animation -->
+    <div class="loader">
+      <div class="spinner"></div>
+    </div>
 
-      <!-- Navigation Bar -->
-      <nav class="mainNav">
-        <ul class="mainNavList">
-          <li class="mainItem"><a href="#">Home</a></li>
-          <li class="mainItem"><a href="#">Our Menu</a></li>
-          <li class="mainItem"><a href="#">Blog Entry</a></li>
-          <li class="mainItem"><a href="#">Contact us</a></li>
+    <!-- HEADER SECTION -->
+    <header class="header" id="header">
+      <a href="/" class="logo" aria-label="Smadeh Kitchen Home">
+        <img src="images/chef logo.png" alt="Smadeh Kitchen Logo" />
+        <h1>Smadeh Kitchen</h1>
+      </a>
+      <nav class="mainNav" role="navigation" aria-label="Main navigation">
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mainNavList"
+        >
+          <span class="hamburger"></span>
+        </button>
+        <ul class="mainNavList" id="mainNavList">
+          <li class="mainItem"><a href="#home" class="active">Home</a></li>
+          <li class="mainItem"><a href="#menu">Our Menu</a></li>
+          <li class="mainItem"><a href="#blog">Blog</a></li>
+          <li class="mainItem"><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="section1">
-      <div class="section1d">
-        <p>Here you can get delicious foods</p>
-        <h3>African restaurant</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis,
-          iste. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Veritatis, iste.
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="subtitle">Savor the Flavors of Africa</p>
+        <h1>Authentic African Cuisine</h1>
+        <p class="description">
+          Experience the rich and vibrant tastes of Nigeria at Smadeh Kitchen.
+          From savory Moi-Moi to spicy Jollof, we bring tradition to your plate.
         </p>
-        <button>Order now</button>
+        <button class="cta-button" aria-label="Order food now">
+          Order Now
+        </button>
       </div>
     </section>
 
     <!-- MENU DESCRIPTION -->
-    <div class="div1">
-      <div>
-        <ion-icon name="fast-food-outline"></ion-icon>
-        <h4>Our Menu</h4>
+    <section class="menu-intro" id="menu">
+      <div class="menu-header">
+        <ion-icon name="fast-food-outline" aria-hidden="true"></ion-icon>
+        <h2>Our Menu</h2>
       </div>
-      <p>Our selection of Nigerian snacks with quality taste...</p>
-    </div>
+      <p>
+        Explore our selection of Nigerian delicacies crafted with love and
+        tradition.
+      </p>
+    </section>
 
     <!-- MENU ITEMS -->
-    <div class="select">
-      <a href="#" class="Moi-Moi">
-        <p>$16.04</p>
-        <p>Moi-Moi</p>
-      </a>
-
-      <a href="#" class="dodo">
-        <p>$15.23</p>
-        <p>Dodo</p>
-      </a>
-
-      <a href="#" class="puff-puff">
-        <p>$10.04</p>
-        <p>Puff-Puff</p>
-      </a>
-
-      <a href="#" class="akara">
-        <p>$12.54</p>
-        <p>Akara</p>
-      </a>
-
-      <a href="#" class="kulikuli">
-        <p>$12.85</p>
-        <p>Kuli-Kuli</p>
-      </a>
-
-      <a href="#" class="Masa">
-        <p>$14.03</p>
-        <p>Masa</p>
-      </a>
-
-      <a href="#" class="dankwa">
-        <p>$12.80</p>
-        <p>Donkwa</p>
-      </a>
-    </div>
+    <section class="menu-items">
+      <div class="menu-grid">
+        <a href="#" class="menu-item Moi-Moi" aria-label="View Moi-Moi details">
+          <div class="price">$16.04</div>
+          <div class="name">Moi-Moi</div>
+        </a>
+        <a href="#" class="menu-item dodo" aria-label="View Dodo details">
+          <div class="price">$15.23</div>
+          <div class="name">Dodo</div>
+        </a>
+        <a
+          href="#"
+          class="menu-item puff-puff"
+          aria-label="View Puff-Puff details"
+        >
+          <div class="price">$10.04</div>
+          <div class="name">Puff-Puff</div>
+        </a>
+        <a href="#" class="menu-item akara" aria-label="View Akara details">
+          <div class="price">$12.54</div>
+          <div class="name">Akara</div>
+        </a>
+        <a
+          href="#"
+          class="menu-item kulikuli"
+          aria-label="View Kuli-Kuli details"
+        >
+          <div class="price">$12.85</div>
+          <div class="name">Kuli-Kuli</div>
+        </a>
+        <a href="#" class="menu-item Masa" aria-label="View Masa details">
+          <div class="price">$14.03</div>
+          <div class="name">Masa</div>
+        </a>
+        <a href="#" class="menu-item dankwa" aria-label="View Donkwa details">
+          <div class="price">$12.80</div>
+          <div class="name">Donkwa</div>
+        </a>
+      </div>
+    </section>
 
     <!-- RESERVATION SECTION -->
-    <section class="book">
-      <h1>Book your table now</h1>
-      <div class="reservation">
-        <!-- Reservation Image -->
-        <img src="images/farhad-ibrahimzade-events 1.png" alt="Reservation Image">
-
-
-        <!-- Reservation Date and Time -->
-        <!-- Reservation Form -->
-        <div class="reserve">
-          <h2>Reservation</h2>
-          <div>
-            <div><input type="text" placeholder="Full name"></div>
-            <div><input type="text" placeholder="Phone number"></div>
-            
-            <!-- Dropdown for Guest Number -->
-            <select name="number_of_guests" id="number_of_guests">
-              <option value="" disabled selected>Select number of guests</option>
+    <section class="reservation-section" id="reservation">
+      <h2>Book Your Table</h2>
+      <div class="reservation-container">
+        <img
+          src="images/farhad-ibrahimzade-events 1.png"
+          alt="Elegant dining setup"
+          class="reservation-image"
+        />
+        <div class="reservation-form">
+          <h3>Make a Reservation</h3>
+          <form id="reservation-form">
+            <input
+              type="text"
+              name="full-name"
+              placeholder="Full Name"
+              required
+              aria-required="true"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              aria-required="true"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+              aria-required="true"
+            />
+            <select
+              name="guests"
+              id="number-of-guests"
+              required
+              aria-required="true"
+            >
+              <option value="" disabled selected>Number of Guests</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -119,100 +170,104 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-
-            <!-- Additional Inputs -->
-            <div><input type="text" placeholder="Email address"></div>
-            <div><input type="date"></div>
-            <button>Make a reservation</button>
-          </div>
+            <input type="date" name="date" required aria-required="true" />
+            <button type="submit" class="cta-button">Reserve Now</button>
+          </form>
         </div>
       </div>
     </section>
 
     <!-- SPECIAL OFFERS SECTION -->
-    <section class="special">
-      <h2>This week's special food offers</h2>
-      <div class="special1">
-        <!-- Icons for Special Meals -->
-        <div class="ioncentre">
-          <ion-icon name="beer-outline"></ion-icon>
+    <section class="special-offers" id="specials">
+      <h2>This Week's Specials</h2>
+      <div class="meal-types">
+        <div class="meal-type">
+          <ion-icon name="cafe-outline" aria-hidden="true"></ion-icon>
           <p>Breakfast</p>
         </div>
-        <div class="ioncentre">
-          <ion-icon name="fast-food-outline"></ion-icon>
+        <div class="meal-type">
+          <ion-icon name="fast-food-outline" aria-hidden="true"></ion-icon>
           <p>Lunch</p>
         </div>
-        <div class="ioncentre">
-          <ion-icon name="pizza-outline"></ion-icon>
+        <div class="meal-type">
+          <ion-icon name="restaurant-outline" aria-hidden="true"></ion-icon>
           <p>Dinner</p>
         </div>
       </div>
-
-      <!-- Special Food Items -->
-      <div>
-        <div class="foodList">
-          <div class="goat">
-            <img src="images/istockphoto- amala 1.png" alt="Assorted Goat Meat">
-            <div>
-              <h3>Assorted Goat meat with Black Cassava Amala</h3>
-            </div>
-            <p>$10.34</p>
-          </div>
-
-          <div class="goat">
-            <img src="images/jollof and dodo.png" alt="Jollof and Dodo">
-            <h3>Grilled Chicken and Nigerian Jollof</h3>
-            <p>$10.34</p>
-          </div>
+      <div class="special-grid">
+        <div class="special-item">
+          <img
+            src="images/istockphoto- amala 1.png"
+            alt="Assorted Goat Meat with Amala"
+          />
+          <h3>Assorted Goat Meat with Black Cassava Amala</h3>
+          <p class="price">$10.34</p>
         </div>
-
-        <div class="foodList">
-          <div class="goat">
-            <img src="images/istockphoto- amala 1.png" alt="Assorted Goat Meat">
-            <div>
-              <h3>Assorted Goat meat with Black Cassava Amala</h3>
-            </div>
-            <p>$10.34</p>
-          </div>
-
-          <div class="goat">
-            <img src="images/jollof and dodo.png" alt="Jollof and Dodo">
-            <h3>Grilled Chicken and Nigerian Jollof</h3>
-            <p>$10.34</p>
-          </div>
+        <div class="special-item">
+          <img
+            src="images/jollof and dodo.png"
+            alt="Grilled Chicken and Jollof"
+          />
+          <h3>Grilled Chicken and Nigerian Jollof</h3>
+          <p class="price">$10.34</p>
         </div>
       </div>
     </section>
 
     <!-- FOOTER SECTION -->
-    <footer>
-      <h1>SIGN UP FOR OUR NEWSLETTERS</h1>
-
-      <!-- Newsletter Signup -->
-      <div class="newsletter">
-        <form action="#" method="post">
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Your Email Address" 
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-            required>
-          <button type="submit">Subscribe</button>
-        </form>
-        <p>We promise to keep you informed about our specials, promotions, and offers.</p>
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="newsletter">
+          <h2>Stay Updated</h2>
+          <p>Join our newsletter for exclusive offers and updates.</p>
+          <form id="newsletter-form">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              required
+              aria-required="true"
+            />
+            <button type="submit" class="cta-button">Subscribe</button>
+          </form>
+        </div>
+        <div class="contact-info">
+          <h3>Contact Us</h3>
+          <p>123 Food Street, Lagos, Nigeria</p>
+          <p>Email: info@smadehkitchen.com</p>
+          <p>Phone: +234 123 456 7890</p>
+        </div>
+        <div class="social-links">
+          <h3>Follow Us</h3>
+          <a href="#" aria-label="Facebook"
+            ><ion-icon name="logo-facebook"></ion-icon
+          ></a>
+          <a href="#" aria-label="Twitter"
+            ><ion-icon name="logo-twitter"></ion-icon
+          ></a>
+          <a href="#" aria-label="Instagram"
+            ><ion-icon name="logo-instagram"></ion-icon
+          ></a>
+        </div>
       </div>
-
-      <!-- Social Media Links -->
-      <div class="social">
-        <a href="#" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
-        <a href="#" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
-        <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
-      </div>
+      <p class="copyright">&copy; 2025 Smadeh Kitchen. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Reservation Modal -->
+    <div class="modal" id="reservation-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Reservation Confirmed</h2>
+        <p>
+          Thank you for your reservation! We'll contact you soon to confirm the
+          details.
+        </p>
+        <button class="cta-button close-modal-button">Close</button>
+      </div>
+    </div>
 
-    <!-- Ionicons Script -->
+    <!-- Scripts -->
+    <script src="script.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
